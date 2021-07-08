@@ -17,13 +17,8 @@ type Customer_struct struct {
 	Prod_name  string
 	Store_id  string
 	Quantity int
-	Address_Struct Address_Struct
 }
 
-type Address_Struct struct {
-	Street string
-	House  int
-}
 
 type Global_settings struct {
 	DataBaseType    string
