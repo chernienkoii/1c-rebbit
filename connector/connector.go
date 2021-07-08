@@ -55,7 +55,7 @@ func (Connector *Connector) ConsumeFromQueue() (map[string]rootsctuct.Customer_s
 
 	if Connector.RabbitMQ_channel == nil {
 		err := errors.New("Connection to RabbitMQ not established")
-		return nil, err
+		return nil, errб err2
 	}
 
 	var customer_map_json = make(map[string]rootsctuct.Customer_struct)
@@ -68,7 +68,7 @@ func (Connector *Connector) ConsumeFromQueue() (map[string]rootsctuct.Customer_s
 		false,                   // no-wait
 		nil,                     // arguments
 	)
-	q, err := Connector.RabbitMQ_channel.QueueDeclare2(
+	q, err2 := Connector.RabbitMQ_channel.QueueDeclare(
 		"sku", // name
 		false,                   // durable
 		false,                   // delete when unused
@@ -145,7 +145,8 @@ func (Connector *Connector) SendInQueue(Customer_struct rootsctuct.Customer_stru
 
 	if Connector.RabbitMQ_channel == nil {
 		err := errors.New("Connection to RabbitMQ not established")
-		return err
+		return err, err2
+	
 	}
 
 	q, err := Connector.RabbitMQ_channel.QueueDeclare(
@@ -156,7 +157,7 @@ func (Connector *Connector) SendInQueue(Customer_struct rootsctuct.Customer_stru
 		false,                   // no-wait
 		nil,                     // arguments
 	)
-	q, err := Connector.RabbitMQ_channel.QueueDeclare2(
+	q, err2 := Connector.RabbitMQ_channel.QueueDeclare(
 		"sku", // name
 		false,                   // durable
 		false,                   // delete when unused
