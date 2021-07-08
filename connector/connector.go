@@ -55,7 +55,7 @@ func (Connector *Connector) ConsumeFromQueue() (map[string]rootsctuct.Customer_s
 
 	if Connector.RabbitMQ_channel == nil {
 		err := errors.New("Connection to RabbitMQ not established")
-		return nil, errб err2
+		return nil, err, err2
 	}
 
 	var customer_map_json = make(map[string]rootsctuct.Customer_struct)
