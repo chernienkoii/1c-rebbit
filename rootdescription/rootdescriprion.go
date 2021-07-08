@@ -13,7 +13,7 @@ var Global_settingsV Global_settings
 var LoggerCRMv LoggerCRM
 
 type Customer_struct struct {
-	Customer_id    string
+	sku_id    string
 	Customer_name  string
 	Customer_type  string
 	Customer_email string
