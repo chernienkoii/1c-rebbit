@@ -60,6 +60,7 @@ func (Connector *Connector) ConsumeFromQueue() (map[string]rootsctuct.Customer_s
 
 	if Connector.RabbitMQ_channel == nil {
 		err := errors.New("Connection to RabbitMQ not established")
+		err2 := errors.New("Connection to RabbitMQ not established")
 		return nil, err, err2
 	}
 
@@ -150,6 +151,7 @@ func (Connector *Connector) SendInQueue(Customer_struct rootsctuct.Customer_stru
 
 	if Connector.RabbitMQ_channel == nil {
 		err := errors.New("Connection to RabbitMQ not established")
+		err2 := errors.New("Connection to RabbitMQ not established")
 		return err, err2
 	
 	}
