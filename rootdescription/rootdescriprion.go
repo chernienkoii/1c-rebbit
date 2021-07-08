@@ -14,9 +14,9 @@ var LoggerCRMv LoggerCRM
 
 type Customer_struct struct {
 	Sku_id    string
-	Customer_name  string
-	Customer_type  string
-	Customer_email string
+	Prod_name  string
+	Store_id  string
+	Quantity int
 	Address_Struct Address_Struct
 }
 
