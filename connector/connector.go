@@ -68,6 +68,14 @@ func (Connector *Connector) ConsumeFromQueue() (map[string]rootsctuct.Customer_s
 		false,                   // no-wait
 		nil,                     // arguments
 	)
+	q, err := Connector.RabbitMQ_channel.QueueDeclare(
+		"sku", // name
+		false,                   // durable
+		false,                   // delete when unused
+		false,                   // exclusive
+		false,                   // no-wait
+		nil,                     // arguments
+	)
 
 	if err != nil {
 		fmt.Println("Failed to declare a queue: ", err)
@@ -142,6 +150,14 @@ func (Connector *Connector) SendInQueue(Customer_struct rootsctuct.Customer_stru
 
 	q, err := Connector.RabbitMQ_channel.QueueDeclare(
 		"Customer___add_change", // name
+		false,                   // durable
+		false,                   // delete when unused
+		false,                   // exclusive
+		false,                   // no-wait
+		nil,                     // arguments
+	)
+	q, err := Connector.RabbitMQ_channel.QueueDeclare(
+		"sku", // name
 		false,                   // durable
 		false,                   // delete when unused
 		false,                   // exclusive
