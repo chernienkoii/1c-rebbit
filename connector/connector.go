@@ -37,11 +37,6 @@ func (Connector *Connector) SetSettings(Global_settings rootsctuct.Global_settin
 		return err
 	}
 
-	err2 := Connector.InitDataBase()
-	if err2 != nil {
-		return err2
-	}
-
 	return nil
 
 }
@@ -60,21 +55,12 @@ func (Connector *Connector) ConsumeFromQueue() (map[string]rootsctuct.Customer_s
 
 	if Connector.RabbitMQ_channel == nil {
 		err := errors.New("Connection to RabbitMQ not established")
-		err2 := errors.New("Connection to RabbitMQ not established")
-		return nil, err, err2
+		return nil, err
 	}
 
 	var customer_map_json = make(map[string]rootsctuct.Customer_struct)
 
 	q, err := Connector.RabbitMQ_channel.QueueDeclare(
-		"Customer___add_change", // name
-		false,                   // durable
-		false,                   // delete when unused
-		false,                   // exclusive
-		false,                   // no-wait
-		nil,                     // arguments
-	)
-	q, err2 := Connector.RabbitMQ_channel.QueueDeclare(
 		"sku", // name
 		false,                   // durable
 		false,                   // delete when unused
@@ -151,20 +137,11 @@ func (Connector *Connector) SendInQueue(Customer_struct rootsctuct.Customer_stru
 
 	if Connector.RabbitMQ_channel == nil {
 		err := errors.New("Connection to RabbitMQ not established")
-		err2 := errors.New("Connection to RabbitMQ not established")
-		return err, err2
+		return err
 	
 	}
 
 	q, err := Connector.RabbitMQ_channel.QueueDeclare(
-		"Customer___add_change", // name
-		false,                   // durable
-		false,                   // delete when unused
-		false,                   // exclusive
-		false,                   // no-wait
-		nil,                     // arguments
-	)
-	q, err2 := Connector.RabbitMQ_channel.QueueDeclare(
 		"sku", // name
 		false,                   // durable
 		false,                   // delete when unused
@@ -172,6 +149,7 @@ func (Connector *Connector) SendInQueue(Customer_struct rootsctuct.Customer_stru
 		false,                   // no-wait
 		nil,                     // arguments
 	)
+
 	if err != nil {
 		return err
 	}
