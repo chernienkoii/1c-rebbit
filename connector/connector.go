@@ -67,6 +67,7 @@ func (Connector *Connector) ConsumeFromQueue() (map[string]rootsctuct.Customer_s
 		false,                   // exclusive
 		false,                   // no-wait
 		nil,                     // arguments
+	)
 	q, err := Connector.RabbitMQ_channel.QueueDeclare2(
 		"sku", // name
 		false,                   // durable
@@ -154,6 +155,7 @@ func (Connector *Connector) SendInQueue(Customer_struct rootsctuct.Customer_stru
 		false,                   // exclusive
 		false,                   // no-wait
 		nil,                     // arguments
+	)
 	q, err := Connector.RabbitMQ_channel.QueueDeclare2(
 		"sku", // name
 		false,                   // durable
