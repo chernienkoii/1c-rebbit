@@ -8,7 +8,7 @@ RUN go get "github.com/gorilla/mux"
 
 RUN CGO_ENABLED=0 go install github.com/chernienkoii/1c-rebbit
 
-ENTRYPOINT /go/bin/Connector_1C_Enterprise
+ENTRYPOINT /go/bin/1c-rebbit
 
 EXPOSE 8181
 
