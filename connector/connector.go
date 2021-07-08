@@ -39,7 +39,7 @@ func (Connector *Connector) SetSettings(Global_settings rootsctuct.Global_settin
 
 	err2 := Connector.InitDataBase()
 	if err != nil {
-		return err
+		return err2
 	}
 
 	return nil
