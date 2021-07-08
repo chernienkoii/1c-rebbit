@@ -114,7 +114,7 @@ func (Connector *Connector) ConsumeFromQueue() (map[string]rootsctuct.Customer_s
 					Connector.LoggerCRM.ErrorLogger.Println(err.Error())
 				}
 
-				customer_map_json[Customer_struct.sku_id] = Customer_struct
+				customer_map_json[Customer_struct.Sku_id] = Customer_struct
 
 			default:
 
