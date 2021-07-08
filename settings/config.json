@@ -1,0 +1,1 @@
+{"DataBaseType":"DemoRegime","AddressRabbitMQ":"amqp://guest:guest@10.1.99.32:5672/","UseRabbitMQ":true}
